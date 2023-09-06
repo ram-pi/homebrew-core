@@ -11,9 +11,11 @@ class Jr < Formula
   def install
     system "make", "all"
     libexec.install Dir["build/*"]
-    prefix.install "config/jrconfig.json"
-    prefix.install "templates"
-    (bin/"jr").write_env_script libexec/"jr", JR_HOME: prefix
+    # prefix.install "config/jrconfig.json"
+    # prefix.install "templates"
+    pkgetc.install "config/jrconfig.json"
+    pkgetc.install "templates"
+    (bin/"jr").write_env_script libexec/"jr", JR_HOME: pkgetc
   end
 
   test do
