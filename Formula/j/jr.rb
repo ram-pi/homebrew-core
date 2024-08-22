@@ -1,8 +1,8 @@
 class Jr < Formula
   desc "CLI program that helps you to create quality random data for your applications"
   homepage "https://jrnd.io/"
-  url "https://github.com/ugol/jr/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "be0b28a1c4a3de2807303d0e42e16d65e7d99793c3e753c8d47ac824338a5ae7"
+  url "https://github.com/ugol/jr/archive/refs/tags/v0.3.9.tar.gz"
+  sha256 "82d8e554724cdba39fa5f976f56422b9eb119644ec9de5a3e12a670eefb67bdc"
   license "MIT"
   head "https://github.com/ugol/jr.git", branch: "main"
 
