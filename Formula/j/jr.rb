@@ -1,10 +1,10 @@
 class Jr < Formula
   desc "CLI program that helps you to create quality random data for your applications"
   homepage "https://jrnd.io/"
-  url "https://github.com/ugol/jr/archive/refs/tags/v0.3.9.tar.gz"
+  url "https://github.com/jrnd-io/jr/archive/refs/tags/v0.3.9.tar.gz"
   sha256 "82d8e554724cdba39fa5f976f56422b9eb119644ec9de5a3e12a670eefb67bdc"
   license "MIT"
-  head "https://github.com/ugol/jr.git", branch: "main"
+  head "https://github.com/jrnd-io/jr.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c964d0bcec163858f770b5f58cb8cc29898a80377eb69ac6450581ad0e5fbb05"
@@ -21,9 +21,10 @@ class Jr < Formula
   def install
     ENV.deparallelize { system "make", "all" }
     libexec.install Dir["build/*"]
+    rm_r pkgetc
     pkgetc.install "config/jrconfig.json"
     pkgetc.install "templates"
-    (bin/"jr").write_env_script libexec/"jr", JR_HOME: pkgetc
+    (bin/"jr").write_env_script libexec/"jr", JR_SYSTEM_DIR: pkgetc
   end
 
   test do
